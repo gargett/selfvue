@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定v2</title>
+</head>
+<body>
+  <input type="text" id="textinput" oninput="inputTrigger()">
+  <h1 id="textoutput"></h1>
+</body>
+<!-- <script src="js/observer.js"></script>
+<script src="js/watcher.js"></script>
+<script src="js/index.js"></script> -->
+<script src="js/observer_and_dep.js"></script>
+<script src="js/watcher.js"></script>
+<script src="js/index_origin.js"></script>
+<script type="text/javascript">
+    var ele = document.querySelector('#textoutput');
+    var selfVue = new SelfVue({
+        name: 'hello world'
+    }, ele, 'name');
+
+    function inputTrigger(e) {
+      var e = window.event || e,
+          str = e.target.value
+      selfVue.data.name = str;
+    }
+</script>
+</html>
